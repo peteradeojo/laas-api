@@ -24,6 +24,7 @@ class LogResource extends JsonResource
             'context' => $this->context,
             'extra' => $this->extra,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'ip_address' => $this->ip_address,
         ];
     }
 }
