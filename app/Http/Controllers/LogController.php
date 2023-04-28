@@ -35,6 +35,8 @@ class LogController extends Controller
             'extra' => 'string|nullable',
         ]);
 
+        $data['ip_address'] = $request->ip();
+
         $app = AppToken::with('application')->where('token', $token)->firstOrFail()->application;
 
         if ($app->status_id != status_active()) {

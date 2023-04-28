@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('message');
             $table->string('context')->nullable();
             $table->string('extra')->nullable();
+            $table->ipAddress()->nullable();
             $table->timestamps();
         });
     }
