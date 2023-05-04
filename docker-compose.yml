@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+    laas-api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8001:8000"
+        volumes:
+            - .env.production:/app/.env
+        command: sh -c "php artisan key:generate && /app/start.sh"
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        depends_on:
+            - redis
+    redis:
+        image: redis:6.2
+        ports:
+            - "6000:6379"

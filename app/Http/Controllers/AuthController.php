@@ -46,7 +46,11 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
-        $user = User::where('email', $data['email'])->firstOrFail();
+        $user = User::where('email', $data['email'])->first();
+        if (!$user) {
+            return $this->apiError('Login failed', 'Invalid credentials', 401);
+        }
+
         if (!Hash::check($data['password'], $user->password)) {
             return $this->apiError('Login failed', 'Invalid credentials', 401);
         }
