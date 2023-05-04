@@ -21,4 +21,4 @@ RUN chmod +x /app/start.sh
 
 RUN composer install
 
-CMD ["/app/start.sh"]
+# CMD ["/app/start.sh"]
