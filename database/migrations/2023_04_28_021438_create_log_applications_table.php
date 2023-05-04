@@ -13,15 +13,13 @@ return new class extends Migration
     {
         if (Schema::hasTable('log_applications')) return;
         Schema::create('log_applications', function (Blueprint $table) {
-            $table->uuid();
+            $table->uuid()->primary();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('status_id')->constrained('statuses')->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
-
-            $table->primary('uuid');
         });
     }
 
