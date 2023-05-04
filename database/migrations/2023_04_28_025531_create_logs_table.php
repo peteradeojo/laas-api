@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        if (Schema::hasTable('logs')) return;
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('log_application_id')->constrained('log_applications')->references('uuid')->cascadeOnDelete();
