@@ -7,6 +7,7 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8001:8000"
+            - "6001:6001"
         volumes:
             - .env.production:/app/.env
         command: sh -c "php artisan key:generate && /app/start.sh"
