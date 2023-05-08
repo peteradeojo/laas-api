@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewLog;
 use App\Http\Resources\LogResource;
 use App\Models\AppToken;
 use App\Models\Log;
@@ -44,6 +45,7 @@ class LogController extends Controller
         }
 
         $log = $app->logs()->create($data);
+        event(new NewLog($log));
         return $this->apiSuccess($log, "Log stored successfully.");
     }
 }
