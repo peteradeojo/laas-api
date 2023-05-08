@@ -9,8 +9,11 @@ php artisan migrate --force
 
 php artisan route:cache
 
-supervisorctl start all
+# service supervisor stop
+# service supervisor start
 
-supervisorctl status
+# supervisorctl start all
 
-php artisan serve --host=0.0.0.0
+# supervisorctl status
+
+php artisan serve --host=0.0.0.0 & laravel-echo-server start
