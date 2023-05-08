@@ -20,7 +20,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 Broadcast::channel("log.{app}", function (User $user, LogApplication $app) {
-    return $user->id === $app->user->id;
+    return true;
+    return (int) $user->id === (int) $app->user_id;
+    logger()->info($user->firstname);
 });
-
-// Broadcast::channel('log-broadcast');

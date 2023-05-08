@@ -38,7 +38,8 @@ class NewLog implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel("log.{$this->log->application->uuid}"),
+            new Channel("log.{$this->log->application->uuid}"),
+            // new PrivateChannel("log.{$this->log->application->uuid}"),
         ];
     }
 

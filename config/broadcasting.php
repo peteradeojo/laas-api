@@ -65,12 +65,11 @@ return [
             'driver' => 'null',
         ],
 
-        'socket.io' => [
+        'socketio' => [
             'driver' => 'socket.io',
             'host' => 'http://localhost',
             'port' => 3000,
             'client_locations' => [
-                'App\Events\YourEvent' => '/path/to/your/event-js-file.js',
             ],
         ],
     ],
