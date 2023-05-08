@@ -22,10 +22,12 @@ class LogApplicationResource extends JsonResource
             'name' => $this->title,
             'description' => $this->description,
             'last_log' => $lastLog ? [
-                'origin' => $lastLog?->origin,
-                'level' => Log::getLevel($lastLog?->level),
-                'message' => $lastLog?->message,
-                'created_at' => $lastLog?->created_at?->format('Y-m-d H:i:s'),
+                'origin' => $lastLog->origin,
+                'level' => Log::getLevel($lastLog->level),
+                'message' => $lastLog->message,
+                'created_at' => $lastLog->created_at?->format('Y-m-d H:i:s'),
+                'context' => $lastLog->context,
+                'meta' => $lastLog->meta,
             ] : null,
         ];
     }
