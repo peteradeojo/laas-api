@@ -7,15 +7,37 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8001:8000"
-            - "6001:6001"
         volumes:
             - .env.production:/app/.env
-        command: sh -c "php artisan key:generate && /app/start.sh"
+        # command: sh -c "php artisan key:generate && /app/start.sh"
         extra_hosts:
             - "host.docker.internal:host-gateway"
         depends_on:
             - redis
+            - laravel-echo-server
     redis:
         image: redis:6.2
         ports:
             - "6000:6379"
+    laravel-echo-server:
+        build:
+            context: .
+            dockerfile: Dockerfile.echo
+        volumes:
+            - .env.production:/app/.env
+        depends_on:
+            - redis
+        ports:
+            - "6001:6001"
+    queue:
+        depends_on:
+            - redis
+            - web
+            - laravel-echo-server
+        build:
+            context: .
+            dockerfile: Dockerfile.queue
+        volumes:
+            - .env.production:/app/.env
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
