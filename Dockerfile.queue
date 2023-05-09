@@ -18,7 +18,7 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-dev
 
-COPY ./start.sh /app/start.sh
-RUN chmod +x /app/start.sh
+COPY ./start-queue.sh /app/start-queue.sh
+RUN chmod +x /app/start-queue.sh
 
-CMD ["/app/start.sh"]
+CMD ["/app/start-queue.sh"]

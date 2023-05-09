@@ -9,4 +9,4 @@ php artisan migrate --force
 
 php artisan route:cache
 
-php artisan serve --host=0.0.0.0
+php artisan serve --host=0.0.0.0 # & laravel-echo-server start

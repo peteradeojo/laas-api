@@ -36,7 +36,7 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
-                'host' => env('PUSHER_HOST') ?: 'api-'.env('PUSHER_APP_CLUSTER', 'mt1').'.pusher.com',
+                'host' => env('PUSHER_HOST') ?: 'api-' . env('PUSHER_APP_CLUSTER', 'mt1') . '.pusher.com',
                 'port' => env('PUSHER_PORT', 443),
                 'scheme' => env('PUSHER_SCHEME', 'https'),
                 'encrypted' => true,
@@ -65,6 +65,13 @@ return [
             'driver' => 'null',
         ],
 
+        'socketio' => [
+            'driver' => 'socket.io',
+            'host' => 'http://localhost',
+            'port' => 3000,
+            'client_locations' => [
+            ],
+        ],
     ],
 
 ];
