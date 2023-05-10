@@ -7,7 +7,6 @@ services:
             - "8001:8000"
         volumes:
             - .env.production:/app/.env
-        # command: sh -c "php artisan key:generate && /app/start.sh"
         extra_hosts:
             - "host.docker.internal:host-gateway"
         depends_on:

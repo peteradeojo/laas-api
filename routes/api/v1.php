@@ -20,8 +20,13 @@ Route::prefix('applications')->middleware(['auth:sanctum'])->group(function () {
     Route::middleware(['throttle:5,5'])->post('/{app}/token', [ApplicationController::class, 'generateApiKey']); //->whereAlpha(['app']);
 });
 
+Route::middleware(['auth:sanctum'])->group(function () {
+    // Route::get('/{app}')
+});
+
 Route::prefix('logs')->middleware('auth:sanctum')->group(function () {
-    Route::get('/{app}', [LogController::class, 'index']);
+    Route::get('/', [LogController::class, 'index']);
+    Route::delete('/{app}', [LogController::class, 'clearLogs']);
 });
 
 Route::post('/log', [LogController::class, 'store']);
