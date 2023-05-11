@@ -21,4 +21,11 @@ RUN composer install --optimize-autoloader --no-dev
 COPY ./start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
+RUN composer install
+
+RUN php artisan config:clear && \
+    php artisan config:cache && \
+    php artisan migrate --force && \
+    php artisan route:cache
+
 CMD ["/app/start.sh"]
