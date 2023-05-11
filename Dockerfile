@@ -23,9 +23,9 @@ RUN chmod +x /app/start.sh
 
 RUN composer install
 
-RUN php artisan config:clear && \
-    php artisan config:cache && \
-    php artisan migrate --force && \
+RUN php artisan config:clear;\
+    php artisan config:cache; \
+    php artisan migrate --force; \
     php artisan route:cache
 
 CMD ["/app/start.sh"]
