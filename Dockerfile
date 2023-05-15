@@ -25,6 +25,6 @@ RUN chmod +x /app/start.sh
 
 EXPOSE 8000
 
-RUN php artisan config:clear; php artisan migrate --force
+RUN php artisan config:clear
 
 CMD ["/app/start.sh"]
