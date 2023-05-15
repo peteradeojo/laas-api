@@ -1,5 +1,11 @@
 #!/usr/bin/sh
 
-# php artisan key:generate
+while [ ! -f /app/.env ]; do
+    sleep 1
+done
 
-php artisan serve --host=0.0.0.0 # & laravel-echo-server start
+service redis-server start
+
+php artisan migrate --force
+
+php artisan serve & php artisan queue:work redis

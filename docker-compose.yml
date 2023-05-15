@@ -7,8 +7,8 @@ services:
             - "8001:8000"
         volumes:
             - .env.production:/app/.env
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
+        # extra_hosts:
+        #     - "host.docker.internal:host-gateway"
         depends_on:
             - redis
             - laravel-echo-server
@@ -36,5 +36,5 @@ services:
             dockerfile: Dockerfile.queue
         volumes:
             - .env.production:/app/.env
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
+        # extra_hosts:
+        #     - "host.docker.internal:host-gateway"
