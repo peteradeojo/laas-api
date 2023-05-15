@@ -2,4 +2,6 @@
 
 php artisan migrate --force
 
-php artisan serve & php artisan queue:work redis
+env
+
+php artisan serve --host=0.0.0.0
