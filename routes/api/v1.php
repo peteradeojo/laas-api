@@ -16,12 +16,9 @@ Route::prefix('auth')->group(function () {
 
 Route::prefix('applications')->middleware(['auth:sanctum'])->group(function () {
     Route::get('/', [ApplicationController::class, 'index']);
+    Route::get('/{app}', [ApplicationController::class, 'show']);
     Route::post('/', [ApplicationController::class, 'store']);
     Route::middleware(['throttle:5,5'])->post('/{app}/token', [ApplicationController::class, 'generateApiKey']); //->whereAlpha(['app']);
-});
-
-Route::middleware(['auth:sanctum'])->group(function () {
-    // Route::get('/{app}')
 });
 
 Route::prefix('logs')->middleware('auth:sanctum')->group(function () {

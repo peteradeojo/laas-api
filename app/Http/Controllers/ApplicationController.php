@@ -21,6 +21,11 @@ class ApplicationController extends Controller
         return $this->apiSuccess(LogApplicationResource::collection($apps), "Log applications retrieved.");
     }
 
+    public function show(Request $request, LogApplication $app)
+    {
+        return $this->apiSuccess(new LogApplicationResource($app->load(['status'])), "Log application retrieved.");
+    }
+
     public function store(Request $request)
     {
         $request->validate([
