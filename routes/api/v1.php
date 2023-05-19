@@ -21,7 +21,7 @@ Route::prefix('applications')->middleware(['auth:sanctum'])->group(function () {
     Route::middleware(['throttle:5,5'])->post('/{app}/token', [ApplicationController::class, 'generateApiKey']); //->whereAlpha(['app']);
 });
 
-Route::prefix('logs')->middleware('auth:sanctum')->group(function () {
+Route::prefix('logs')->middleware(['auth:sanctum'])->group(function () {
     Route::get('/', [LogController::class, 'index']);
     Route::delete('/{app}', [LogController::class, 'clearLogs']);
 });
