@@ -8,7 +8,6 @@ if [ -f "/etc/secrets/.env" ]; then
 
     php artisan config:cache
 
-    php artisan key:generate
     php artisan migrate --force
 else
     # code to be executed if the file is not a regular file
