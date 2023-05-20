@@ -1,10 +1,10 @@
 FROM ubuntu:latest
 
-RUN apt-get update
-RUN apt-get install -y curl apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-
 ENV DEBIAN_FRONTEND noninteractive
 ENV COMPOSER_ALLOW_SUPERUSER 1
+
+RUN apt-get update
+RUN apt-get install -y curl apt-transport-https ca-certificates curl gnupg-agent software-properties-common zip
 
 RUN apt-get -y install php8.1-fpm php8.1-curl php8.1-xml php8.1-xml php8.1-bcmath php8.1-mbstring php8.1-redis php8.1-pgsql php8.1-gd php8.1-zip php8.1-mysql
 
