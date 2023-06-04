@@ -1,9 +1,0 @@
-FROM node:alpine
-
-RUN npm i -g laravel-echo-server
-
-WORKDIR /app
-
-COPY ./laravel-echo-server.json /app/laravel-echo-server.json
-
-CMD [ "laravel-echo-server", "start" ]
