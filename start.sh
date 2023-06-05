@@ -8,4 +8,9 @@ php artisan migrate --force
 
 php artisan config:cache
 
-php artisan serve --host=0.0.0.0
+# php artisan serve --host=0.0.0.0
+
+chown -R www-data:www-data /app/storage
+chown -R www-data:www-data /app/bootstrap/cache
+
+supervisord -n -c /app/supervisor.conf
