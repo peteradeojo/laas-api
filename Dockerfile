@@ -28,4 +28,6 @@ RUN chmod +x /app/start.sh
 RUN sh /app/composer-setup.sh
 RUN composer install --no-dev --no-interaction --no-progress --optimize-autoloader
 
+EXPOSE 8000
+
 ENTRYPOINT ["/app/start.sh"]

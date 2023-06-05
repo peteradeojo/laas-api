@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('log_applications', function (Blueprint $table) {
             $table->uuid()->primary();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('status_id')->constrained('statuses')->nullOnDelete();
+            $table->foreignId('status_id')->nullable()->constrained('statuses')->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->softDeletes();
