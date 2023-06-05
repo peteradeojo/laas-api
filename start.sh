@@ -12,5 +12,6 @@ php artisan config:cache
 
 chown -R www-data:www-data /app/storage
 chown -R www-data:www-data /app/bootstrap/cache
+chown -R www-data:www-data /app/supervisord.conf
 
 supervisord -n -c /app/supervisor.conf
