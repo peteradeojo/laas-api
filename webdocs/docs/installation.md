@@ -10,3 +10,5 @@ To send logs to LAAS, developers can simply make a POST request to the LAAS API,
 Once the logs are successfully delivered to LAAS, developers can access them through the web interface. The interface provides a clear overview of the logged data, including timestamps, log levels, and relevant contextual information. By grouping logs by application, developers can easily locate and focus on specific log sets, enabling them to efficiently track application-specific issues or debug code related to a particular component.
 
 The web interface of LAAS also offers advanced search and filtering capabilities, empowering developers to quickly pinpoint specific logs based on keywords, log levels, or custom parameters. This streamlined approach reduces the time and effort required for log analysis, enabling developers to rapidly identify critical events, errors, or patterns within their applications.
+
+To get started, visit the website at <a href='https://lags.vercel.app'>https://lags.vercel.app</a>
