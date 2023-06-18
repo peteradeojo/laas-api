@@ -11,11 +11,7 @@ const config = {
     favicon: "img/favicon.ico",
 
     // Set the production url of your site here
-<<<<<<< HEAD
-    url: "https://github.com/peteradeojo/laas-api-nest",
-=======
     url: "https://lags.vercel.app",
->>>>>>> @{-1}
     // Set the /<baseUrl>/ pathname under which your site is served
     // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: "/docs/",
